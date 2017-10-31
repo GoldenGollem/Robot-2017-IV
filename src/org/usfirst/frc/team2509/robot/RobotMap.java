@@ -44,13 +44,6 @@ public class RobotMap {
     //Other
     public static Thread UpdateDash;
     public static void init() {
-    	DRIVETRAIN = new RobotDrive(DT_LEFTFRONT, DT_LEFTREAR,DT_RIGHTFRONT, DT_RIGHTREAR);
-        DRIVETRAIN.setSafetyEnabled(false);
-        DRIVETRAIN.setExpiration(1.0);
-        DRIVETRAIN.setSensitivity(1.0);
-        DRIVETRAIN.setMaxOutput(1.0);
-        DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-        DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     	
     	CLIMB_MOTOR1 = new CANTalon(4);
     	CLIMB_MOTOR1.setInverted(true);
@@ -66,6 +59,13 @@ public class RobotMap {
         LiveWindow.addActuator("DriveTrain", "DT_LEFTREAR", DT_LEFTREAR);
         DT_RIGHTREAR = new CANTalon(3);
         LiveWindow.addActuator("DriveTrain", "DT_RIGHTREAER", DT_RIGHTREAR);
+    	DRIVETRAIN = new RobotDrive(DT_LEFTFRONT, DT_LEFTREAR,DT_RIGHTFRONT, DT_RIGHTREAR);
+        DRIVETRAIN.setSafetyEnabled(false);
+        DRIVETRAIN.setExpiration(1.0);
+        DRIVETRAIN.setSensitivity(1.0);
+        DRIVETRAIN.setMaxOutput(1.0);
+        DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+        DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
         SHOOT_AUGER = new Talon(1);
         LiveWindow.addActuator("Shooter", "Auger", SHOOT_AUGER);
         SHOOT_GATE = new Talon(0);
@@ -94,7 +94,7 @@ public class RobotMap {
         UpdateDash = new Thread(()->{
         	SmartDashboard.putNumber("Gyro", DT_GYRO.getAngle());
             //SmartDashboard.putDouble("GYRO", RobotMap.DT_GYRO.getAngle());
-        	SmartDashboard.putNumber("Encoder", SHOOT_MOTOR.getSpeed());
+        	SmartDashboard.putNumber("Encoder", Robot.shooter.getRPM());
         });
     }
     

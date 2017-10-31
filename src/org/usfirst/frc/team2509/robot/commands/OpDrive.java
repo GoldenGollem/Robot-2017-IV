@@ -31,7 +31,9 @@ public class OpDrive extends Command {
     	}else if((org.usfirst.frc.team2509.robot.OI.getOPStick().getRawButton(8)
     			||org.usfirst.frc.team2509.robot.OI.getOPStick().getRawButton(7))
     			&&(org.usfirst.frc.team2509.robot.OI.getOPStick().getRawButton(2))){
-    		
+    		DRIVE.AltReverseOperatorControl();
+    	}else{
+    		DRIVE.OperatorControl();
     	}
     }
 

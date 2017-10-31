@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2509.robot.commands;
 
+import org.usfirst.frc.team2509.robot.OI;
 import org.usfirst.frc.team2509.robot.Robot;
 import org.usfirst.frc.team2509.robot.subsystems.Shooter;
 
@@ -11,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShooterRun extends Command {
 	private Shooter SHOOT = Robot.shooter;
-	private double TargetSpeed = 3800;
+	private double TargetSpeed = OI.SPEED;
     public ShooterRun() {
     	requires(SHOOT);
     }
